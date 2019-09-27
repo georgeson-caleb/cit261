@@ -19,7 +19,7 @@
          Cost: $<input type="text" id="expenseCost" onchange="validateCost()">
          <button type="button" onclick="addElement()">Add</button>
       </form>
-      <table id="budgetTable">
+      <table id="elements">
          <tr>
             <th>
                Name of Expense:
@@ -28,15 +28,9 @@
                Cost:
             </th>
          </tr>
-         <span id="elements"></span>
-         <tr>
-            <th>
-               Total cost:
-            </th>
-            <td id="totalCost">
-               $0.00
-            </td>
-         </tr>
       </table>
+      <div>
+         Total cost: $<span id="totalCost">0.00</span>
+      </div>
    </body>
 </html>
