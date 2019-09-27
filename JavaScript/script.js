@@ -1,9 +1,16 @@
-function drawRect() {
-   var canvas = document.getElementById("myCanvas");
-   var ctx = canvas.getContext("2d");
-   ctx.fillStyle = "#FF0000";
-   var i = 0;
-   for (i; i < 500; i++) {
-      ctx.fillRect(0, 0, i, 80);
-   }
+var totalCost = 0.00;
+
+function addElement() {
+   var name = document.getElementById("expenseName").value;
+   var cost = document.getElementById("expenseCost").value;
+
+   var element = "<td>" + name + "</td><td>" + cost + "</td>";
+   document.getElementById("elements").innerHTML += element;
+
+   updateTotalCost(cost);
+}
+
+function updateTotalCost(cost) {
+   totalCost += cost;
+   document.getElementById("totalCost").innerHTML = "$" + totalCost;
 }
