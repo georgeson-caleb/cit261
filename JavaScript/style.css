@@ -16,10 +16,18 @@ table ,th, tr, td, form {
 form, table {
    border-radius: 5px;
    margin: 20px auto;
+   background-color: #71c7dd;
+}
+
+form {
    width: 60%;
 }
 
-input {
-   margin: 10px auto;
-   background-color: white;
+table {
+   width: 40%;
+}
+
+.inputField {
+   margin: auto;
+   width: 50%;
 }
