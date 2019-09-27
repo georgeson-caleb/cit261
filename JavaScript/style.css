@@ -15,6 +15,13 @@ table ,th, tr, td, form {
 
 form, table {
    border-radius: 5px;
+   margin: auto 20px;
+   width: 60%;
+}
+
+input {
+   margin: auto 10px;
+   background-color: white;
 }
 
 .right-align {
