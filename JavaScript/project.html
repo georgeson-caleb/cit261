@@ -2,7 +2,7 @@
 <html lang="en-US">
    <head>
       <title>
-         JavaScript Fluency
+         Budget Calculator
       </title>
       <link rel="stylesheet" href="style.css">
       <script src="script.js"></script>
@@ -10,11 +10,33 @@
    <body onload="drawRect();">
       <header>
          <h1>
-            JavaScript
+            Budget Calculator
          </h1>
+         <a href="../../index.html">Home</a>
       </header>
-      <canvas id="myCanvas">
-         If you are seeing this, your browser does not support the canvas tag. The reccomended browser for this website is Google Chrome.
-      </canvas>
+      <form>
+         Name of Expense:<input type="text" id="expenseName"></br>
+         Cost:<input type="text" id="expenseCost">
+         <button type="button" onclick="addElement()">Add</button>
+      </form>
+      <table id="budgetTable">
+         <tr>
+            <th>
+               Name of Expense:
+            </th>
+            <th>
+               Cost:
+            </th>
+         </tr>
+         <div id="elements"></div>
+         <tr>
+            <th>
+               Total cost:
+            </th>
+            <td id="totalCost">
+               $0.00
+            </td>
+         </tr>
+      </table>
    </body>
 </html>
