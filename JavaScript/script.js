@@ -5,7 +5,7 @@ function addElement() {
       var name = document.getElementById("expenseName").value;
       var cost = document.getElementById("expenseCost").value;
 
-      var element = "<tr><td>" + name + "</td><td>$<span class=\"right-align\">" + cost + "</span></td></tr>";
+      var element = "<tr><td>" + name + "</td><td>$" + cost + "</td></tr>";
       document.getElementById("elements").innerHTML += element;
 
       updateTotalCost(cost);
