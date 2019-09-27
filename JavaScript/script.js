@@ -1,13 +1,18 @@
 var totalCost = 0.00;
 
 function addElement() {
-   var name = document.getElementById("expenseName").value;
-   var cost = document.getElementById("expenseCost").value;
+   if (validateCost()) {
+      var name = document.getElementById("expenseName").value;
+      var cost = document.getElementById("expenseCost").value;
 
-   var element = "<tr><td>" + name + "</td><td>$<span class=\"right-align\">" + cost + "</span></td></tr>";
-   document.getElementById("elements").innerHTML += element;
+      var element = "<tr><td>" + name + "</td><td>$<span class=\"right-align\">" + cost + "</span></td></tr>";
+      document.getElementById("elements").innerHTML += element;
 
-   updateTotalCost(cost);
+      updateTotalCost(cost);
+
+      document.getElementById("expenseName").value = "";
+      document.getElementById("expenseCost").value = "";
+   }
 }
 
 function updateTotalCost(cost) {
@@ -16,5 +21,16 @@ function updateTotalCost(cost) {
 }
 
 function validateCost() {
-
+   var value = document.getElementById("expenseCost").value;
+   var patt = new RegExp("\D");
+   if (patt.test(value)) {
+      document.getElementById("expenseCost").style.backgroundColor = "#c32323";
+      document.getElementById("expenseCost").style.borderBottom = "2px solid red";
+      document.getElementById("expenseCost").value = "Must enter a number!";
+      return false;
+   } else {
+      document.getElementById("expenseCost").style.backgroundColor = "white";
+      document.getElementById("expenseCost").style.borderBottom = "1px solid black";
+      return true;
+   }
 }
