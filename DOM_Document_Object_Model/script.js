@@ -12,7 +12,7 @@ function insertBeforeExample() {
    var list = document.getElementById("stuff");
    var i = 0;
    for (var x in list.childNodes) {
-      console.log(i, ": ", x);
+      console.log(i, ": ", x.innerHTML);
       i++;
    }
    list.insertBefore(node, list.childNodes[2]);
