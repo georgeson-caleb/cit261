@@ -17,3 +17,11 @@ function removeChildExample() {
    var item = document.getElementById("stuff");
    item.removeChild(item.childNodes[0]);
 }
+
+function replaceChildExample() {
+   var node = document.createElement("LI");
+   var textNode = document.createTextNode("UFO");
+   node.appendChild(textNode);
+   var list = document.getElementById("stuff");
+   list.replaceChild(node, list.childNodes[3]);
+}
