@@ -10,7 +10,11 @@ function insertBeforeExample() {
    var textNode = document.createTextNode("Plane");
    node.appendChild(textNode);
    var list = document.getElementById("stuff");
-   console.log(list.childNodes[1].innerHTML);
+   var i = 0;
+   for (var x in list.childNodes) {
+      console.log(i, ": ", x);
+      i++;
+   }
    list.insertBefore(node, list.childNodes[2]);
 }
 
