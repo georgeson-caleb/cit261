@@ -1,0 +1,17 @@
+body {
+   background-color: #7777c5;
+}
+
+div {
+   width: 60%;
+   margin: auto;
+   text-align: center;
+   background-color: #9a9aa1;
+   border: 2px solid grey;
+}
+
+header {
+   background-color: #9a9aa1;
+   width: 100%;
+   text-align: center;
+}
