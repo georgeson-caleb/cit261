@@ -10,9 +10,10 @@ function insertBeforeExample() {
    var textNode = document.createTextNode("Plane");
    node.appendChild(textNode);
    var list = document.getElementById("stuff");
-   list.insertBefore(node, list[1]);
+   list.insertBefore(node, list.childNodes[1]);
 }
 
 function removeChildExample() {
-   document.getElementById("stuff").removeChild(item[0]);
+   var item = document.getElementById("stuff");
+   item.removeChild(item.childNodes[0]);
 }
