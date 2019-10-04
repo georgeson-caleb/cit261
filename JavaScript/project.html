@@ -2,7 +2,7 @@
 <html lang="en-US">
    <head>
       <title>
-         Budget Calculator
+         JavaScript Game
       </title>
       <link rel="stylesheet" href="style.css">
       <script src="script.js"></script>
@@ -10,27 +10,30 @@
    <body>
       <header>
          <h1>
-            Budget Calculator
+            Slay The Dragon
          </h1>
          <a href="../../index.html">Home</a>
       </header>
-      <form>
-         <div class="inputField">Name of Expense:<input type="text" id="expenseName"></div>
-         <div class="inputField">Cost: $<input type="text" id="expenseCost" onchange="validateCost()"></div>
-         <div class="inputField"><button type="button" onclick="addElement()">Add</button></div>
-      </form>
-      <table id="elements">
-         <tr>
-            <th>
-               Name of Expense:
-            </th>
-            <th>
-               Cost:
-            </th>
-         </tr>
-      </table>
-      <div>
-         Total cost: $<span id="totalCost">0.00</span>
+      <div id="gameText">
+         <p>
+
+         </p>
+      </div>
+      <div id="playerStats">
+         <div>
+            Health: <span id="health"></span>
+         </div>
+         <div>
+            Weapon: <span id="weapon"></span>
+         </div>
+         <div>
+            Armor: <span id="armor"></span>
+         </div>
+      </div>
+      <div id="dragonStats">
+         <div>
+            Health: <span id="dHealth"></span>
+         </div>
       </div>
    </body>
 </html>
