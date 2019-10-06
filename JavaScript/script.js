@@ -162,13 +162,19 @@ function getInput() {
  * Lets other functions know when the 
  * button gets clicked
  *************************************/
+var clicked = false;
 function buttonClick() {
-   return true;
+   clicked = true;
+}
+
+function isClicked() {
+   return clicked;
 }
 
 function game() {
    // Wait for the button to be clicked
-   while(!buttonClick()) {}
+   while(isClicked()) {}
+   clicked = false;
 
    displayText("Button was clicked");
 }
