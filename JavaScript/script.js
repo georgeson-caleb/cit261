@@ -173,7 +173,7 @@ function isClicked() {
 
 function game() {
    // Wait for the button to be clicked
-   while(isClicked()) {}
+   while(!isClicked()) {}
    clicked = false;
 
    displayText("Button was clicked");
