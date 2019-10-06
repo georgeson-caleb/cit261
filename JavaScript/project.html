@@ -7,7 +7,7 @@
       <link rel="stylesheet" href="style.css">
       <script src="script.js"></script>
    </head>
-   <body>
+   <body onload="game()">
       <header>
          <h1>
             Slay The Dragon
@@ -16,11 +16,14 @@
       </header>
       <div id="game">
          <p>
-
+            You find yourself in a dark tunnel with bones along the walls.<br>
+            (Press the button to continue)
          </p>
       </div>
       <div id="input">
          <form>
+            <input type="text" id="option">
+            <button type="button" onclick="buttonClick()">Continue</button>
          </form>
       </div>
       <div id="playerStats">

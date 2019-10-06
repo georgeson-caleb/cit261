@@ -146,3 +146,29 @@ function displayText(text) {
    node.appendChild(textNode);
    document.getElementById("game").appendChild(node);
 }
+
+/*************************************
+ * Fetches the value of the input box
+ * and resets it
+ *************************************/
+function getInput() {
+   var input = document.getElementById("option").value;
+   document.getElementById("option").value = "";
+
+   return input;
+}
+
+/*************************************
+ * Lets other functions know when the 
+ * button gets clicked
+ *************************************/
+function buttonClick() {
+   return true;
+}
+
+function game() {
+   // Wait for the button to be clicked
+   while(!buttonClick()) {}
+
+   displayText("Button was clicked");
+}
