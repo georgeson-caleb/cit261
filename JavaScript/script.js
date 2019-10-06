@@ -17,6 +17,7 @@ class Player {
     * The player attacks
     ************************************/
    attack(dragon) {
+      displayText("You attack.");
       var damage = 0;
       var hit = 0;
       // Get the damage and roll for a hit
@@ -29,13 +30,16 @@ class Player {
                // that the Rusty Sword
                // will kill the dragon
                // automatically
+               // (Tetanus is very deadly!)
                damage = 100;
+               displayText("The dragon gets tetanus and dies.");
             } else if (hit == -1) {
                // There is also a small
                // chance that the Rusty
                // Sword will kill the player
                // automatically
                this.health = 0;
+               displayText("You get tetanus and die.")
             }
             break;
          case "Iron Axe":
@@ -57,12 +61,18 @@ class Player {
       if (hit >= 20) {
          // Critical hit
          dragon.health -= damage + 20;
+         displayText("Critical hit!");
       } else if (hit > 10) {
          // Normal hit
          dragon.health -= damage;
+         displayText("You hit the dragon!");
       } else if (hit == 1) {
          // Critical fail
          this.health -= damage / 2;
+         displayText("You miss and hit yourself. :(");
+      } else {
+         // Miss
+         displayText("You missed.");
       }
    }
 }
@@ -81,19 +91,24 @@ class Dragon {
     * The Dragon attacks
     ****************************************/
    attack(player) {
+      displayText("The dragon attacks.");
       var damage = getRandInteger(1, max_damage);
       var hit = roll();
       if (hit == 20) {
          //Critical hit
          player.health -= damage + 10;
+         displayText("Critical hit!");
       } else if (hit > 12) {
          //Normal hit
          player.health -= damage;
+         displayText("You get hit!");
       } else if (hit == 1) {
          // Critical fail
          this.health -= damage;
+         displayText("The dragon misses and hits itself!");
       }else {
          //miss
+         displayText("The dragon missed.");
       }
    }
    /**************************************
@@ -118,4 +133,16 @@ function roll() {
  ***********************************/
 function getRandInteger(min, max) {
    return Math.floor(Math.random() * (min - max) + 1);
+}
+
+
+/***********************************
+ * Takes a string as a paramater and 
+ * adds it to the game div
+ ***********************************/
+function displayText(text) {
+   var node = document.createElement("P");
+   var textNode = document.createTextNode(text);
+   node.appendChild(textNode);
+   document.getElementById("game").appendChild(node);
 }
