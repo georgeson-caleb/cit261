@@ -222,4 +222,4 @@ var scenario = {
    }
 }
 
-var weapons = { rustySword, ironAxe, javelin, steelMace }
+var weapons = { rustySword: 1, ironAxe: 2, javelin: 3, steelMace: 4 }
