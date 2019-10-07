@@ -1,3 +1,6 @@
+var player;
+var dragon;
+
 /**************************************************
  * Player
  * Implementation of the Player class
@@ -8,10 +11,19 @@ class Player {
       var weapon = "";
       var armor = "";
    }
+   /************************************
+    * Displays the players stats
+    ************************************/
    displayPlayerStats() {
       document.getElementById("health").innerHTML = health;
       document.getElementById("weapon").innerHTML = weapon;
       document.getElementById("armor").innerHTML = armor;
+   }
+   /************************************
+    * Sets the players weapon
+    ************************************/
+   setWeapon(x) {
+      this.weapon = x;
    }
    /************************************
     * The player attacks
@@ -22,7 +34,7 @@ class Player {
       var hit = 0;
       // Get the damage and roll for a hit
       switch (this.weapon) {
-         case "Rusty Sword":
+         case weapons.rustySword:
             damage = 5;
             hit = roll() - 2;
             if (hit == 18) {
@@ -42,15 +54,15 @@ class Player {
                displayText("You get tetanus and die.")
             }
             break;
-         case "Iron Axe":
+         case weapons.ironAxe:
             damage = 10;
             hit = roll() + 2;
             break;
-         case "Javelin":
+         case weapons.javelin:
             damage = 5;
             hit = roll() + 3;
             break;
-         case "Steel Mace":
+         case weapons.steelMace:
             damage = 20;
             hit = roll() - 2
          default:
@@ -137,7 +149,7 @@ function getRandInteger(min, max) {
 
 
 /***********************************
- * Takes a string as a paramater and 
+ * Takes a string as a parameter and 
  * adds it to the game div
  ***********************************/
 function displayText(text) {
@@ -147,34 +159,67 @@ function displayText(text) {
    document.getElementById("game").appendChild(node);
 }
 
-/*************************************
- * Fetches the value of the input box
- * and resets it
- *************************************/
-function getInput() {
-   var input = document.getElementById("option").value;
-   document.getElementById("option").value = "";
+/**********************************
+ * Takes a list of buttons as a 
+ * parameter and displays each button
+ **********************************/
+function showButtons(buttons) {
+   var userInput = document.getElementById("userInput").innerHTML = "";
+   for (var i = 0; i < buttons.length; i++) {
+     userInput.innerHTML += "<button onClick="+buttons[i][1]+">" + buttons[i][0] + "</button>";
+   };
+};
 
-   return input;
+function advanceTo(x) {
+   var player;
+   var dragon;
+   if (x == scenario.one) {
+      player = new Player();
+      dragon = new Dragon();
+   }
+   displayText(x.text);
+   showButtons(x.buttons);
 }
 
-/*************************************
- * Lets other functions know when the 
- * button gets clicked
- *************************************/
-var clicked = false;
-function buttonClick() {
-   clicked = true;
+var scenario = {
+   one: {
+      text: "You find yourself in a dark tunnel with bones along the walls." +
+              "There are weapons on the ground. Which one do you pick?",
+      buttons: [["Rusty Sword", "player.setWeapon(weapons.rustySword), advanceTo(scenario.two)"], 
+                  ["Iron Axe", "player.setWeapon(weapons.ironAxe), advanceTo(scenario.two)"],
+                  ["Javelin", "player.setWeapon(weapons.javelin), advanceTo(scenario.two)"],
+                  ["Steel Mace", "player.setWeapon(weapons.steelMace), advanceTo(scenario.two)"]]
+   },
+   two: {
+      text: "As you continue down the tunnel you enter a large tunnel lit by a " +
+            "tall chandelier dangling from the ceiling.",
+      button: ["Continue", "advanceto(scenario.three)"]
+   },
+   three: {
+      text: "As you examine the chandelier, you realize that the chandelier is actually " + 
+            "a dragon!",
+      button: ["Continue", "advanceto(scenario.three)"]
+   },
+   four: {
+      text: "The dragon jumps down and attacks!",
+      button: [["Jump", "player.jump()"], ["Duck", "player.duck()"], ["Attack", "player.attack()"]]
+   },
+   five: {
+      text: "What do you do?",
+      button: [["Jump", "player.jump()"], ["Duck", "player.duck()"], ["Attack", "player.attack()"]]
+   },
+   six: {
+      text: "You have died. What do you do?",
+      button: [["Try again", "advanceTo(scenario.one)"], ["End game", "advanceTo(scenario.eight)"]]
+   },
+   seven: {
+      text: "The dragon is dead! You won! What do you do?",
+      button: [["Play again", "advanceTo(scenario.one)"], ["End game", "advanceTo(scenario.eight)"]]
+   },
+   eight: {
+      text: "Thanks for playing!",
+      buttons: []
+   }
 }
 
-function isClicked() {
-   return clicked;
-}
-
-function game() {
-   // Wait for the button to be clicked
-   while(!isClicked()) {}
-   clicked = false;
-
-   displayText("Button was clicked");
-}
+var weapons = { rustySword, ironAxe, javelin, steelMace }
