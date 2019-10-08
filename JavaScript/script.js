@@ -148,6 +148,24 @@ class Dragon {
    }
 }
 
+class Game {
+   constructor() {
+      var player = new Player();
+      var dragon = new Dragon();
+   }
+
+   advanceTo(x) {
+      if (x == scenario.one) {
+         player = new Player();
+         dragon = new Dragon();
+      }
+      displayText(x.text);
+      showButtons(x.buttons);
+      player.displayPlayerStats();
+      dragon.displayDragonStats();
+   }
+}
+
 
 /***********************************
  * Simulates rolling a 20 sided die
@@ -235,18 +253,4 @@ var weapons = {
    steelMace: "Steel Mace" 
 }
 
-var player = new Player();
-var dragon = new Dragon();
-
-function advanceTo(x) {
-   var player;
-   var dragon;
-   if (x == scenario.one) {
-      player = new Player();
-      dragon = new Dragon();
-   }
-   displayText(x.text);
-   showButtons(x.buttons);
-   player.displayPlayerStats();
-   dragon.displayDragonStats();
-}
+var game = new Game();
