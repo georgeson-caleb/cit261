@@ -152,8 +152,8 @@ class Dragon {
 
 class Game {
    constructor() {
-      var player = new Player();
-      var dragon = new Dragon();
+      var player = new Player.constructor();
+      var dragon = new Dragon.constructor();
       console.log("Game initialized.");
       this.advanceTo(scenario.one);
    }
