@@ -11,6 +11,7 @@ class Player {
       var weapon = "";
       var armor = "";
    }
+
    /************************************
     * Displays the players stats
     ************************************/
@@ -19,12 +20,14 @@ class Player {
       document.getElementById("weapon").innerHTML = weapon;
       document.getElementById("armor").innerHTML = armor;
    }
+
    /************************************
     * Sets the players weapon
     ************************************/
    setWeapon(x) {
       this.weapon = x;
    }
+
    /************************************
     * The player attacks
     ************************************/
@@ -86,6 +89,20 @@ class Player {
          // Miss
          displayText("You missed.");
       }
+
+      //Update the stats
+      this.displayPlayerStats();
+      dragon.displayDragonStats();
+
+      //Check what happens next
+      if (dragon.health <= 0) {
+         // Dragon is dead
+         advanceTo(scenario.seven)
+      } else if (this.health <= 0) {
+         advanceTo(scenario.six);
+      } else {
+         dragon.attack(this);
+      }
    }
 }
 
@@ -99,6 +116,7 @@ class Dragon {
       var max_damage = 15;
       var armor = 30;
    }
+
    /****************************************
     * The Dragon attacks
     ****************************************/
@@ -123,6 +141,7 @@ class Dragon {
          displayText("The dragon missed.");
       }
    }
+
    /**************************************
     * Show the Dragon's stats
     **************************************/
@@ -164,7 +183,8 @@ function displayText(text) {
  * parameter and displays each button
  **********************************/
 function showButtons(buttons) {
-   var userInput = document.getElementById("userInput").innerHTML = "";
+   var userInput = document.getElementById("userInput");
+   userInput.innerHTML = "";
    for (var i = 0; i < buttons.length; i++) {
      userInput.innerHTML += "<button onClick="+buttons[i][1]+">" + buttons[i][0] + "</button>";
    };
@@ -179,11 +199,13 @@ function advanceTo(x) {
    }
    displayText(x.text);
    showButtons(x.buttons);
+   player.displayPlayerStats();
+   dragon.displayDragonStats();
 }
 
 var scenario = {
    one: {
-      text: "You find yourself in a dark tunnel with bones along the walls." +
+      text: "You find yourself in a dark tunnel with bones along the walls. " +
               "There are weapons on the ground. Which one do you pick?",
       buttons: [["Rusty Sword", "player.setWeapon(weapons.rustySword), advanceTo(scenario.two)"], 
                   ["Iron Axe", "player.setWeapon(weapons.ironAxe), advanceTo(scenario.two)"],
