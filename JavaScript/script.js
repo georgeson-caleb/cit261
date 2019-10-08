@@ -3,10 +3,13 @@
  * Implementation of the Player class
  **************************************************/
 class Player {
+   health;
+   weapon;
+   armor;
    constructor() {
-      var health = 50;
-      var weapon = "";
-      var armor = "";
+      health = 50;
+      weapon = "";
+      armor = "";
       console.log("Creating new player");
    }
 
@@ -110,10 +113,13 @@ class Player {
  * Implementation of the Dragon class
  *******************************************/
 class Dragon {
+   health;
+   max_damage;
+   armor;
    constructor() {
-      var health = 200;
-      var max_damage = 15;
-      var armor = 30;
+      health = 200;
+      max_damage = 15;
+      armor = 30;
       console.log("Creating new dragon");
    }
 
@@ -151,10 +157,11 @@ class Dragon {
 }
 
 class Game {
+   player;
+   dragon;
    constructor() {
-      var player = new Player();
-      var dragon = new Dragon();
-      console.log("Game initialized.");
+      player = new Player();
+      dragon = new Dragon();
    }
 
    advanceTo(x) {
