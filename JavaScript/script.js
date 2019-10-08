@@ -152,10 +152,9 @@ class Dragon {
 
 class Game {
    constructor() {
-      var player = new Player.constructor();
-      var dragon = new Dragon.constructor();
+      var player = new Player();
+      var dragon = new Dragon();
       console.log("Game initialized.");
-      this.advanceTo(scenario.one);
    }
 
    advanceTo(x) {
@@ -257,4 +256,7 @@ var weapons = {
    steelMace: "Steel Mace" 
 }
 
-var game = new Game();
+function startGame() {
+   var game = new Game();
+   game.advanceTo(scenario.one);
+}
