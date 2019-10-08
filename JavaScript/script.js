@@ -182,8 +182,8 @@ function displayText(text) {
 function showButtons(buttons) {
    var userInput = document.getElementById("userInput");
    userInput.innerHTML = "";
-   for (var i = 0; i < buttons.length(); i++) {
-     userInput.innerHTML += "<button onClick="+buttons[i][1]+">" + buttons[i][0] + "</button>";
+   for (x in buttons) {
+     userInput.innerHTML += "<button onClick=" + x[1]+">" + x[0] + "</button>";
    };
 };
 
