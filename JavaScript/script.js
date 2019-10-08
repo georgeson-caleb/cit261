@@ -152,6 +152,7 @@ class Game {
    constructor() {
       var player = new Player();
       var dragon = new Dragon();
+      this.advanceTo(scenario.one);
    }
 
    advanceTo(x) {
