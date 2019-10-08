@@ -1,5 +1,5 @@
-var player;
-var dragon;
+var player = new Player();
+var dragon = new Dragon();
 
 /**************************************************
  * Player
