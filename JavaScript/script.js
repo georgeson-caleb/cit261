@@ -1,6 +1,3 @@
-var player = new Player();
-var dragon = new Dragon();
-
 /**************************************************
  * Player
  * Implementation of the Player class
@@ -167,7 +164,6 @@ function getRandInteger(min, max) {
    return Math.floor(Math.random() * (min - max) + 1);
 }
 
-
 /***********************************
  * Takes a string as a parameter and 
  * adds it to the game div
@@ -190,19 +186,6 @@ function showButtons(buttons) {
      userInput.innerHTML += "<button onClick="+buttons[i][1]+">" + buttons[i][0] + "</button>";
    };
 };
-
-function advanceTo(x) {
-   var player;
-   var dragon;
-   if (x == scenario.one) {
-      player = new Player();
-      dragon = new Dragon();
-   }
-   displayText(x.text);
-   showButtons(x.buttons);
-   player.displayPlayerStats();
-   dragon.displayDragonStats();
-}
 
 var scenario = {
    one: {
@@ -246,3 +229,19 @@ var scenario = {
 }
 
 var weapons = { rustySword: 1, ironAxe: 2, javelin: 3, steelMace: 4 }
+
+var player = new Player();
+var dragon = new Dragon();
+
+function advanceTo(x) {
+   var player;
+   var dragon;
+   if (x == scenario.one) {
+      player = new Player();
+      dragon = new Dragon();
+   }
+   displayText(x.text);
+   showButtons(x.buttons);
+   player.displayPlayerStats();
+   dragon.displayDragonStats();
+}
