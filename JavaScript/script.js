@@ -13,9 +13,9 @@ class Player {
     * Displays the players stats
     ************************************/
    displayPlayerStats() {
-      document.getElementById("health").innerHTML = health.value;
-      document.getElementById("weapon").innerHTML = weapon.value;
-      document.getElementById("armor").innerHTML = armor.value;
+      document.getElementById("health").innerHTML = health;
+      document.getElementById("weapon").innerHTML = weapon;
+      document.getElementById("armor").innerHTML = armor;
    }
 
    /************************************
@@ -182,7 +182,7 @@ function displayText(text) {
 function showButtons(buttons) {
    var userInput = document.getElementById("userInput");
    userInput.innerHTML = "";
-   for (var i = 0; i < buttons.length; i++) {
+   for (var i = 0; i < buttons.length(); i++) {
      userInput.innerHTML += "<button onClick="+buttons[i][1]+">" + buttons[i][0] + "</button>";
    };
 };
@@ -228,7 +228,12 @@ var scenario = {
    }
 }
 
-var weapons = { rustySword: 1, ironAxe: 2, javelin: 3, steelMace: 4 }
+var weapons = { 
+   rustySword: "Rusty Sword", 
+   ironAxe: "Iron Axe", 
+   javelin: "Javelin", 
+   steelMace: "Steel Mace" 
+}
 
 var player = new Player();
 var dragon = new Dragon();
