@@ -182,10 +182,10 @@ function displayText(text) {
 function showButtons(buttons) {
    var userInput = document.getElementById("userInput");
    userInput.innerHTML = "";
-   for (x in buttons) {
-     userInput.innerHTML += "<button onClick=" + x[1]+">" + x[0] + "</button>";
-   };
-};
+   for (var i = 0; i < buttons.length; i++) {
+     userInput.innerHTML += "<button onClick=" + buttons[i][1]+">" + buttons[i][0] + "</button>";
+   }
+}
 
 var scenario = {
    one: {
@@ -199,28 +199,28 @@ var scenario = {
    two: {
       text: "As you continue down the tunnel you enter a large tunnel lit by a " +
             "tall chandelier dangling from the ceiling.",
-      button: [["Continue", "advanceto(scenario.three)"],[]]
+      buttons: [["Continue", "advanceto(scenario.three)"],[]]
    },
    three: {
       text: "As you examine the chandelier, you realize that the chandelier is actually " + 
             "a dragon!",
-      button: [["Continue", "advanceto(scenario.three)"],[]]
+      buttons: [["Continue", "advanceto(scenario.three)"],[]]
    },
    four: {
       text: "The dragon jumps down and attacks!",
-      button: [["Jump", "player.jump()"], ["Duck", "player.duck()"], ["Attack", "player.attack()"]]
+      buttons: [["Jump", "player.jump()"], ["Duck", "player.duck()"], ["Attack", "player.attack()"]]
    },
    five: {
       text: "What do you do?",
-      button: [["Jump", "player.jump()"], ["Duck", "player.duck()"], ["Attack", "player.attack()"]]
+      buttons: [["Jump", "player.jump()"], ["Duck", "player.duck()"], ["Attack", "player.attack()"]]
    },
    six: {
       text: "You have died. What do you do?",
-      button: [["Try again", "advanceTo(scenario.one)"], ["End game", "advanceTo(scenario.eight)"]]
+      buttons: [["Try again", "advanceTo(scenario.one)"], ["End game", "advanceTo(scenario.eight)"]]
    },
    seven: {
       text: "The dragon is dead! You won! What do you do?",
-      button: [["Play again", "advanceTo(scenario.one)"], ["End game", "advanceTo(scenario.eight)"]]
+      buttons: [["Play again", "advanceTo(scenario.one)"], ["End game", "advanceTo(scenario.eight)"]]
    },
    eight: {
       text: "Thanks for playing!",
