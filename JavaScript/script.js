@@ -199,12 +199,12 @@ var scenario = {
    two: {
       text: "As you continue down the tunnel you enter a large tunnel lit by a " +
             "tall chandelier dangling from the ceiling.",
-      button: ["Continue", "advanceto(scenario.three)"]
+      button: [["Continue", "advanceto(scenario.three)"]]
    },
    three: {
       text: "As you examine the chandelier, you realize that the chandelier is actually " + 
             "a dragon!",
-      button: ["Continue", "advanceto(scenario.three)"]
+      button: [["Continue", "advanceto(scenario.three)"]]
    },
    four: {
       text: "The dragon jumps down and attacks!",
@@ -224,7 +224,7 @@ var scenario = {
    },
    eight: {
       text: "Thanks for playing!",
-      buttons: []
+      buttons: [[]]
    }
 }
 
