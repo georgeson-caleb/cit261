@@ -16,9 +16,9 @@ class Player {
     * Displays the players stats
     ************************************/
    displayPlayerStats() {
-      document.getElementById("health").innerHTML = health;
-      document.getElementById("weapon").innerHTML = weapon;
-      document.getElementById("armor").innerHTML = armor;
+      document.getElementById("health").innerHTML = health.value;
+      document.getElementById("weapon").innerHTML = weapon.value;
+      document.getElementById("armor").innerHTML = armor.value;
    }
 
    /************************************
@@ -26,6 +26,7 @@ class Player {
     ************************************/
    setWeapon(x) {
       this.weapon = x;
+      advanceTo(scenario.two);
    }
 
    /************************************
@@ -207,10 +208,10 @@ var scenario = {
    one: {
       text: "You find yourself in a dark tunnel with bones along the walls. " +
               "There are weapons on the ground. Which one do you pick?",
-      buttons: [["Rusty Sword", "player.setWeapon(weapons.rustySword), advanceTo(scenario.two)"], 
-                  ["Iron Axe", "player.setWeapon(weapons.ironAxe), advanceTo(scenario.two)"],
-                  ["Javelin", "player.setWeapon(weapons.javelin), advanceTo(scenario.two)"],
-                  ["Steel Mace", "player.setWeapon(weapons.steelMace), advanceTo(scenario.two)"]]
+      buttons: [["Rusty Sword", "player.setWeapon(weapons.rustySword)"], 
+                  ["Iron Axe", "player.setWeapon(weapons.ironAxe)"],
+                  ["Javelin", "player.setWeapon(weapons.javelin)"],
+                  ["Steel Mace", "player.setWeapon(weapons.steelMace)"]]
    },
    two: {
       text: "As you continue down the tunnel you enter a large tunnel lit by a " +
