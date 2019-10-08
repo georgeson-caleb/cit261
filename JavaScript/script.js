@@ -7,6 +7,7 @@ class Player {
       var health = 50;
       var weapon = "";
       var armor = "";
+      console.log("Creating new player");
    }
 
    /************************************
@@ -113,6 +114,7 @@ class Dragon {
       var health = 200;
       var max_damage = 15;
       var armor = 30;
+      console.log("Creating new dragon");
    }
 
    /****************************************
@@ -152,6 +154,7 @@ class Game {
    constructor() {
       var player = new Player();
       var dragon = new Dragon();
+      console.log("Game initialized.");
       this.advanceTo(scenario.one);
    }
 
