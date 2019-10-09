@@ -5,21 +5,23 @@
 class Player {
    health;
    weapon;
-   armor;
+   armor ;
+   jumped;
+   ducked;   
    constructor() {
-      health = 50;
-      weapon = "";
-      armor = "";
-      console.log("Creating new player");
+      this.health = 50;
+      this.weapon = "";
+      this.jumped = false;
+      this.ducked = false;
    }
 
    /************************************
     * Displays the players stats
     ************************************/
    displayPlayerStats() {
-      document.getElementById("health").innerHTML = health;
-      document.getElementById("weapon").innerHTML = weapon;
-      document.getElementById("armor").innerHTML = armor;
+      document.getElementById("health").innerHTML = this.health;
+      document.getElementById("weapon").innerHTML = this.weapon;
+      document.getElementById("armor").innerHTML = this.armor;
    }
 
    /************************************
@@ -27,7 +29,6 @@ class Player {
     ************************************/
    setWeapon(x) {
       this.weapon = x;
-      advanceTo(scenario.two);
    }
 
    /************************************
@@ -106,6 +107,14 @@ class Player {
          dragon.attack(this);
       }
    }
+
+   jump() {
+      jumped = true;
+   }
+
+   duck() {
+      ducked = true;
+   }
 }
 
 /*******************************************
@@ -115,12 +124,9 @@ class Player {
 class Dragon {
    health;
    max_damage;
-   armor;
    constructor() {
-      health = 200;
-      max_damage = 15;
-      armor = 30;
-      console.log("Creating new dragon");
+      this.health = 200;
+      this.max_damage = 15;
    }
 
    /****************************************
@@ -128,7 +134,7 @@ class Dragon {
     ****************************************/
    attack(player) {
       displayText("The dragon attacks.");
-      var damage = getRandInteger(1, max_damage);
+      var damage = getRandInteger(1, this.max_damage);
       var hit = roll();
       if (hit == 20) {
          //Critical hit
@@ -136,13 +142,30 @@ class Dragon {
          displayText("Critical hit!");
       } else if (hit > 12) {
          //Normal hit
-         player.health -= damage;
-         displayText("You get hit!");
+         if (player.jumped) {
+            if (hit % 2 == 0) {
+               player.health -= damage;
+               displayText("You jumped but the dragon still got you!");
+            } else {
+               displayText("The dragon missed!");
+            }
+            jumped = false;
+         } else if (player.ducked) {
+            if (hit % 2 != 0) {
+               player.health -= damage;
+               displayText("You ducked but the dragon still got you!");
+            } else {
+               displayText("The dragon missed!");
+            }
+         } else {
+            player.health -= damage;
+            displayText("You got hit!");
+         }
       } else if (hit == 1) {
          // Critical fail
          this.health -= damage;
          displayText("The dragon misses and hits itself!");
-      }else {
+      } else {
          //miss
          displayText("The dragon missed.");
       }
@@ -156,32 +179,14 @@ class Dragon {
    }
 }
 
-class Game {
-   player;
-   dragon;
-   constructor() {
-      player = new Player();
-      dragon = new Dragon();
-   }
-
-   advanceTo(x) {
-      if (x == scenario.one) {
-         player = new Player();
-         dragon = new Dragon();
-      }
-      displayText(x.text);
-      showButtons(x.buttons);
-      player.displayPlayerStats();
-      dragon.displayDragonStats();
-   }
-}
-
-
 /***********************************
  * Simulates rolling a 20 sided die
  ***********************************/
 function roll() {
-   return Math.floor(Math.random() * (1 - 20) ) + 1;
+   var number = Math.floor(Math.random() * 20 ) + 1;
+   console.log(number);
+
+   return number;
 }
 
 /***********************************
@@ -219,32 +224,32 @@ var scenario = {
    one: {
       text: "You find yourself in a dark tunnel with bones along the walls. " +
               "There are weapons on the ground. Which one do you pick?",
-      buttons: [["Rusty Sword", "player.setWeapon(weapons.rustySword)"], 
-                  ["Iron Axe", "player.setWeapon(weapons.ironAxe)"],
-                  ["Javelin", "player.setWeapon(weapons.javelin)"],
-                  ["Steel Mace", "player.setWeapon(weapons.steelMace)"]]
+      buttons: [["Rusty Sword", "setPlayerWeapon(weapons.rustySword),advanceTo(scenario.two)"], 
+                  ["Iron Axe", "setPlayerWeapon(weapons.ironAxe),advanceTo(scenario.two)"],
+                  ["Javelin", "setPlayerWeapon(weapons.javelin),advanceTo(scenario.two)"],
+                  ["Steel Mace", "setPlayerWeapon(weapons.steelMace),advanceTo(scenario.two)"]]
    },
    two: {
       text: "As you continue down the tunnel you enter a large tunnel lit by a " +
             "tall chandelier dangling from the ceiling.",
-      buttons: [["Continue", "advanceto(scenario.three)"]]
+      buttons: [["Continue", "advanceTo(scenario.three)"]]
    },
    three: {
       text: "As you examine the chandelier, you realize that the chandelier is actually " + 
             "a dragon!",
-      buttons: [["Continue", "advanceTo(scenario.three)"]]
+      buttons: [["Continue", "advanceTo(scenario.four)"]]
    },
    four: {
       text: "The dragon jumps down and attacks!",
-      buttons: [["Jump", "player.jump()"], ["Duck", "player.duck()"], ["Attack", "player.attack()"]]
+      buttons: [["Continue", "advanceTo(scenario.five)"]]
    },
    five: {
       text: "What do you do?",
-      buttons: [["Jump", "player.jump()"], ["Duck", "player.duck()"], ["Attack", "player.attack()"]]
+      buttons: [["Jump", "player.jump()"], ["Duck", "player.duck()"], ["Attack", "player.attack(dragon)"]]
    },
    six: {
       text: "You have died. What do you do?",
-      buttons: [["Try again", "advanceTo(scenario.one)"], ["End game", "advanceTo(scenario.eight)"]]
+      buttons: [["Try again", "document.location.reload()"], ["End game", "advanceTo(scenario.eight)"]]
    },
    seven: {
       text: "The dragon is dead! You won! What do you do?",
@@ -263,7 +268,16 @@ var weapons = {
    steelMace: "Steel Mace" 
 }
 
-function startGame() {
-   var game = new Game();
-   game.advanceTo(scenario.one);
+var player = new Player();
+var dragon = new Dragon();
+
+function setPlayerWeapon(weapon) {
+   player.setWeapon(weapon);
+}
+
+advanceTo = function(x) {
+   displayText(x.text);
+   showButtons(x.buttons);
+   player.displayPlayerStats();
+   dragon.displayDragonStats();
 }
