@@ -1,33 +1,32 @@
 body {
-   background-color: #67c2a4;
+   background-color: black;
+   font-family: Consolas;
+   color: white;
 }
 
 header {
-   background-color: #71c7dd;
    text-align: center;
-   font-family: sans-serif;
 }
 
-table ,th, tr, td, form {
-   border: 2px solid black;
-   border-collapse: collapse;
-}
-
-form, table {
-   border-radius: 5px;
-   margin: 20px auto;
-   background-color: #71c7dd;
-}
-
-form {
+#game {
+   overflow: auto;
    width: 60%;
-}
-
-table {
-   width: 40%;
-}
-
-.inputField {
+   height: 200px;
    margin: auto;
-   width: 50%;
+}
+
+#stats {
+   display: flex;
+   flex-direction: row;
+   margin: auto;
+}
+
+#playerStats, #dragonStats {
+   color: gray;
+   border: 2px solid white;
+   border-collapse: collapse;
+   text-align: center;
+   margin: auto;
+   width: 45%;
+   height: 100px;
 }

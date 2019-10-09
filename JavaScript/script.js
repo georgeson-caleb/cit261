@@ -21,7 +21,6 @@ class Player {
    displayPlayerStats() {
       document.getElementById("health").innerHTML = this.health;
       document.getElementById("weapon").innerHTML = this.weapon;
-      document.getElementById("armor").innerHTML = this.armor;
    }
 
    /************************************
@@ -49,7 +48,7 @@ class Player {
                // will kill the dragon
                // automatically
                // (Tetanus is very deadly!)
-               damage = 100;
+               damage = 200;
                displayText("The dragon gets tetanus and dies.");
             } else if (hit == -1) {
                // There is also a small
@@ -57,7 +56,7 @@ class Player {
                // Sword will kill the player
                // automatically
                this.health = 0;
-               displayText("You get tetanus and die.")
+               displayText("Your Rusty Sword slips out of your hand and cuts your foot. You get tetanus and die.")
             }
             break;
          case weapons.ironAxe:
@@ -76,6 +75,7 @@ class Player {
             hit = roll();
             break;   
       }
+
       if (hit >= 20) {
          // Critical hit
          dragon.health -= damage + 20;
@@ -109,11 +109,11 @@ class Player {
    }
 
    jump() {
-      jumped = true;
+      this.jumped = true;
    }
 
    duck() {
-      ducked = true;
+      this.ducked = true;
    }
 }
 
@@ -149,7 +149,7 @@ class Dragon {
             } else {
                displayText("The dragon missed!");
             }
-            jumped = false;
+            player.jumped = false;
          } else if (player.ducked) {
             if (hit % 2 != 0) {
                player.health -= damage;
@@ -157,6 +157,7 @@ class Dragon {
             } else {
                displayText("The dragon missed!");
             }
+            player.ducked = false;
          } else {
             player.health -= damage;
             displayText("You got hit!");
@@ -175,7 +176,7 @@ class Dragon {
     * Show the Dragon's stats
     **************************************/
    displayDragonStats() {
-      document.getElementById("dHealth").innerHTML = health;
+      document.getElementById("dHealth").innerHTML = this.health;
    }
 }
 
@@ -194,7 +195,7 @@ function roll() {
  * the min and the max parameters
  ***********************************/
 function getRandInteger(min, max) {
-   return Math.floor(Math.random() * (min - max) + 1);
+   return Math.floor(Math.random() * (max - min) + 1);
 }
 
 /***********************************
@@ -245,7 +246,7 @@ var scenario = {
    },
    five: {
       text: "What do you do?",
-      buttons: [["Jump", "player.jump()"], ["Duck", "player.duck()"], ["Attack", "player.attack(dragon)"]]
+      buttons: [["Jump", "player.jump(),dragon.attack(player),scrollBottom()"], ["Duck", "player.duck(),dragon.attack(player),scrollBottom()"], ["Attack", "player.attack(dragon),scrollBottom()"]]
    },
    six: {
       text: "You have died. What do you do?",
@@ -275,7 +276,12 @@ function setPlayerWeapon(weapon) {
    player.setWeapon(weapon);
 }
 
-advanceTo = function(x) {
+function scrollBottom() {
+   var div = document.getElementById("game");
+   div.scrollTop = div.scrollHeight;
+}
+
+function advanceTo(x) {
    displayText(x.text);
    showButtons(x.buttons);
    player.displayPlayerStats();
