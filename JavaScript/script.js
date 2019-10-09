@@ -242,7 +242,7 @@ var scenario = {
    },
    four: {
       text: "The dragon jumps down and attacks!",
-      buttons: [["Continue", "advanceTo(scenario.five)"]]
+      buttons: [["Continue", "advanceTo(scenario.five),scrollBottom()"]]
    },
    five: {
       text: "What do you do?",
@@ -258,7 +258,7 @@ var scenario = {
    },
    eight: {
       text: "Thanks for playing!",
-      buttons: [[]]
+      buttons: [["Try again", "document.location.reload()"]]
    }
 }
 
