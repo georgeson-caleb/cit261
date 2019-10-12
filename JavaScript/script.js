@@ -254,7 +254,7 @@ var scenario = {
    },
    seven: {
       text: "The dragon is dead! You won! What do you do?",
-      buttons: [["Play again", "advanceTo(scenario.one)"], ["End game", "advanceTo(scenario.eight)"]]
+      buttons: [["Play again", "document.location.reload()"], ["End game", "advanceTo(scenario.eight)"]]
    },
    eight: {
       text: "Thanks for playing!",
