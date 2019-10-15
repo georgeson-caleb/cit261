@@ -6,7 +6,7 @@ function multiplyWithFor() {
    displayNumber(number);
 }
 
-function multiplyWIthWhile() {
+function multiplyWithWhile() {
    var number = getNumber();
    while(number < 100) {
       number *= 2;
@@ -27,7 +27,7 @@ function getNumber() {
 }
 
 function displayNumber(number) {
-   var node = document.createNode("P");
+   var node = document.createElement("P");
    var textNode = document.createTextNode(number);
    node.appendChild(textNode);
    document.getElementById("answerBox").appendChild(node);
