@@ -14,5 +14,30 @@
          </h1>
          <a href="../../index.html">Home</a>
       </header>
+      <div id="parseExample">
+         <form>
+            Make a thing:
+            Name:<input type="text" id="name"><br>
+            Shape:
+            <select id="shapes">
+               <option value=""></option>
+               <option value="circle">Circle</option>
+               <option value="triangle">Triangle</option>
+               <option value="square">Square</option>
+            </select><br>
+            Color:<input type="text" id="color"><br>
+            Check things to include with this thing:
+            <ul id="checkBox">
+               <li><input type="checkbox" value="Cat">Cat</li>
+               <li><input type="checkbox" value="Dog">Dog</li>
+               <li><input type="checkbox" value="Mouse">Mouse</li>
+               <li><input type="checkbox" value="Bird">Bird</li>
+            </ul>
+            <button onClick="parseObject()">Parse</button>
+         </form>
+         <div id="objectPlace">
+
+         </div>
+      </div>
    </body>
 </html>
