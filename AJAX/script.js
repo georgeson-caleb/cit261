@@ -26,6 +26,6 @@ function getKey() {
 } 
 
 function displayWeather(weather) {
-   var string = "City: " + weather.city + "<br>Temp: " + weather.maxTemp;
+   var string = "City: " + weather.name + "<br>Temp: " + weather.main.temp;
    document.getElementById("weather").innerHTML = string;
 }
