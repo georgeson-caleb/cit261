@@ -30,7 +30,7 @@ function displayWeather(weather) {
 }
 
 function getQueryString() {
-   var city = document.getElementById("City").value;
+   var city = document.getElementById("city").value;
    var queryString = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&apiKey="
    return queryString;
 }
