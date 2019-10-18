@@ -24,4 +24,4 @@ function getKey() {
     };
     xhttp.open("GET", "apiKey.php", true);
     xhttp.send();
-}
+} 
