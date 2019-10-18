@@ -6,4 +6,6 @@ function changeBorder() {
    var selection = iBorder % borders.length;
 
    document.getElementById("example").style.border = borders[selection];
+
+   iBorder++;
 }
