@@ -2,7 +2,7 @@
 <html lang="en-US">
    <head>
       <title>
-         AJAX
+         AJAX example
       </title>
       <link rel="stylesheet" href="style.css">
       <script src="script.js"></script>
@@ -10,11 +10,20 @@
    <body>
       <header>
          <h1>
-            AJAX
+            AJAX example
          </h1>
          <a href="../../index.html">Home</a>
-         <button onclick="getKey();">Get weather info</button>
-         <div id="weather"></div>
       </header>
+      <div>
+         <p>
+            Get the current temperature of a city:
+         </p>
+         <input type="text" placeholder="City" id="city">
+         <button onclick="getKey();">Get temperature</button>
+         <div id="weather"></div>
+      </div>
+      <footer>
+         API source: <a href="openweathermap.org">openweathermap.org</a>
+      </footer>
    </body>
 </html>

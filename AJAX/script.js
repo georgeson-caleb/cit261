@@ -1,20 +1,19 @@
-function performAjaxRequest(key) {
-   var weather;
-   var queryString = "https://api.openweathermap.org/data/2.5/weather?q=Barranquilla&units=imperial&apikey=" + key;
+function performAjaxRequest(key) {   
    var xhttp = new XMLHttpRequest();
    xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        weather = JSON.parse(this.responseText);
+        var weather = JSON.parse(this.responseText);
         console.log(this.responseText);
         displayWeather(weather);
       }
     };
-    xhttp.open("GET", queryString, true);
+    xhttp.open("GET", getQueryString() + key, true);
     xhttp.send();
 }
 
+// The API key can't be posted publicly, so it is stored
+// on the server
 function getKey() {
-   var apiKey;
    var xhttp = new XMLHttpRequest();
    xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
@@ -28,4 +27,10 @@ function getKey() {
 function displayWeather(weather) {
    var string = "City: " + weather.name + "<br>Temp: " + weather.main.temp;
    document.getElementById("weather").innerHTML = string;
+}
+
+function getQueryString() {
+   var city = document.getElementById("City").value;
+   var queryString = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&apiKey="
+   return queryString;
 }
