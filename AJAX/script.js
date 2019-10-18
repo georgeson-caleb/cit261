@@ -22,7 +22,7 @@ function getKey() {
         apiKey = this.responseText;
       }
     };
-    xhttp.open("GET", "apiKey.txt", true);
+    xhttp.open("GET", "apiKey.php", true);
     xhttp.send();
 
     return apiKey;
