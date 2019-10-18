@@ -19,11 +19,9 @@ function getKey() {
    var xhttp = new XMLHttpRequest();
    xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        apiKey = this.responseText;
+        return this.responseText;
       }
     };
     xhttp.open("GET", "apiKey.php", true);
     xhttp.send();
-
-    return apiKey;
 }
