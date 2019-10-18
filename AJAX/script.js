@@ -25,5 +25,5 @@ function getKey() {
     xhttp.open("GET", "apiKey.txt", true);
     xhttp.send();
 
-    return apiKey();
+    return apiKey;
 }
