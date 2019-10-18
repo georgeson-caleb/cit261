@@ -1,17 +1,15 @@
-function performAjaxRequest() {
+function performAjaxRequest(key) {
    var weather;
-   var queryString = "https://api.openweathermap.org/data/2.5/weather?q=Barranquilla&units=imperial&apikey=" + getKey();
+   var queryString = "https://api.openweathermap.org/data/2.5/weather?q=Barranquilla&units=imperial&apikey=" + key;
    var xhttp = new XMLHttpRequest();
    xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         weather = JSON.parse(this.responseText);
+        displayWeather(weather);
       }
     };
     xhttp.open("GET", queryString, true);
     xhttp.send();
-
-    var string = "City: " + weather.city + "<br>Temp: " + weather.maxTemp;
-    document.getElementById("weather").innerHTML = string;
 }
 
 function getKey() {
@@ -19,10 +17,14 @@ function getKey() {
    var xhttp = new XMLHttpRequest();
    xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-        console.log(this.responseText);
-        return this.responseText;
+        performAjaxRequest(this.responseText);
       }
     };
     xhttp.open("GET", "apiKey.php", true);
     xhttp.send();
 } 
+
+function displayWeather(weather) {
+   var string = "City: " + weather.city + "<br>Temp: " + weather.maxTemp;
+   document.getElementById("weather").innerHTML = string;
+}
