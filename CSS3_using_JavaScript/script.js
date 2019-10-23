@@ -85,7 +85,8 @@ function changePadding() {
    var padding = ["20px",
                   "5px",
                   "25px",
-                  "10px"]
+                  "10px",
+                  "40px"]
    
    var select = iPadding % padding.length;
 
@@ -99,10 +100,12 @@ function changeRandomly() {
    iColor = Math.floor(Math.random() * 20);
    iSize = Math.floor(Math.random() * 20);
    iFonts = Math.floor(Math.random() * 20);
+   iPadding = Math.floor(Math.random() * 20)
 
    
    changeBorder();
    changeColor();
    changeSize();
    changeFont();
+   changePadding();
 }
