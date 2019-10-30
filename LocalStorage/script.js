@@ -35,3 +35,7 @@ function showData(dataString) {
    console.log(string);
    document.getElementById("thing").innerHTML = string;
 }
+
+function showNoKeyError() {
+   document.getElementById("thing").innerHTML = "There is no item with that name."
+}
