@@ -32,7 +32,6 @@ function showData(dataString) {
    var string = "Name: " + _data.name + 
       "<br>Color: " + _data.color + 
       "<br>Size: " + _data.size;
-   console.log(string);
    document.getElementById("thing").innerHTML = string;
 }
 
