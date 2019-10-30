@@ -14,5 +14,27 @@
          </h1>
          <a href="../../index.html">Home</a>
       </header>
+      <div id="userInput">
+         Name<input type="text" id="name"><br>
+         Color<input type="text" id="color"><br>
+         Size
+         <select id="size">
+            <option>
+               Small
+            </option>
+            <option>
+               Medium
+            </option>
+            <option>
+               Large
+            </option>
+         </select>
+         <button type="button" onclick="getData()">Save data</button>
+      </div>
+      <div id="userData">
+         Name of thing: <input type="text" id="key">
+         <button type="button" onclick="retrieveData()">Get the thing</button>
+         <div id="thing"></div>
+      </div>
    </body>
 </html>
