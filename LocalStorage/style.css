@@ -18,3 +18,20 @@ div h3 {
    text-align: center;
 }
 
+table, th, td {
+   border: 1px solid black;
+   text-align: left;
+   border-collapse: collapse;
+}
+
+#loadStudents, #registrationInfo {
+   background-color: #8cabff;
+}
+
+#info {
+   background-color: #4e79ec;
+}
+
+input {
+   margin: auto;
+}
