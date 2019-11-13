@@ -7,13 +7,14 @@
       <link rel="stylesheet" href="style.css">
       <script src="script.js"></script>
    </head>
-   <body>
+   <body onload="loadPageFunction()" onbeforeunload="saveColors()">
       <header>
          <h1>
             JavaScript Events
          </h1>
          <a href="../../index.html">Home</a>
       </header>
-      <canvas id="canvas" style="width: 100%; height: 200px;" onload="initializeEventListener()"></canvas>
+      <div id="events" ontouchstart="processTouch()" ontouchmove="moveTouch()" ontouchend="endTouch()" onmouseover="changeColor()" onclick="changeBackgroundColor()">Click, touch, hover, etc. over this box and see what happens!</div>
+      <div id="output"></div>
    </body>
 </html>
