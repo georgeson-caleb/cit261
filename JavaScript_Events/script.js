@@ -21,7 +21,7 @@ function mouseOn() {
 }
 
 function mouseOff() {
-   outputMessage("The mouse is left.");
+   outputMessage("The mouse left.");
    changeColor();
 }
 
