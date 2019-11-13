@@ -1,18 +1,28 @@
-function addEvents() {
-   document.getElementById("events").addEventListener("touchstart", processTouch(event));
+function outputMessage(message) {
+   document.getElementById("output").innerHTML = message;
 }
 
 function processTouch(event) {
-   document.getElementById("output").innerHTML = "You are touching the screen!";
+   outputMessage("You are touching the screen!");
 }
 
 function moveTouch() {
-   document.getElementById("output").innerHTML = "You are moving your finger";
+   outputMessage("You are moving your finger");
    changeColor();
 }
 
 function endTouch() {
-   document.getElementById("output").innerHTML = "";
+   outputMessage("You stopped touching the screen.");
+}
+
+function mouseOn() {
+   outputMessage("The mouse is over the box.");
+   changeColor();
+}
+
+function mouseOff() {
+   outputMessage("The mouse is left.");
+   changeColor();
 }
 
 function loadPageFunction() {
