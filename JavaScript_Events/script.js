@@ -48,6 +48,15 @@ function changeBackgroundColor() {
    document.body.style.backgroundColor = color;
 }
 
+function startAnimation() {
+   outputMessage("Animation started");
+   document.getElementById("animation").classList = "animate";
+}
+
+function removeAnimation() {
+   outputMessage("Animation ended")
+   document.getElementById("animation").classList = "";
+}
 //Found on StackOverflow
 //https://stackoverflow.com/questions/1484506/random-color-generator
 function getRandomColor() {
@@ -57,4 +66,5 @@ function getRandomColor() {
      color += letters[Math.floor(Math.random() * 16)];
    }
    return color;
- }
+}
+
