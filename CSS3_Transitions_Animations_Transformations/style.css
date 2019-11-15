@@ -1,0 +1,20 @@
+.example {
+   width: 75%;
+   height: 100px;
+   margin: 10px auto;
+   background-color: #9395ff;
+}
+
+#transitionDiv {
+   transition: 3s;
+}
+
+.animate {
+   animation-name: "animation";
+   animation-duration: 5s;
+}
+
+@keyframes animation {
+   from {margin: 0px;}
+   to   {margin: 50px;}
+}
