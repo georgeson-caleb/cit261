@@ -1,4 +1,4 @@
-function startTransition(element) {
+function startTransition1(element) {
    element.style.width  = "80px";
    element.style.height = "80px";
    element.style.backgroundColor = "#fec3a3"
