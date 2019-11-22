@@ -14,5 +14,35 @@
          </h1>
          <a href="../../index.html">Home</a>
       </header>
+      <div id="videoTags">
+         <h2>
+            Video
+         </h2>
+         <h4>
+            Here's a video of my dog! 
+         </h4>  
+         <video width="320" height="200" controls>
+            <source src="cooper-the-dog.mp4" type="video/mp4">
+            Oops! There was a problem displaying the video. Try using a different browser.
+         </video>
+         <iframe width="320" height="200" src="https://www.youtube.com/watch?v=Uj5LJleL2DI"></iframe>
+      </div>
+      <div id="audioTags">
+         <h2>
+            Audio
+         </h2>
+         <audio controls>
+            <source src="bensound-ukulele.mp3" type="audio/mpeg">
+            Oops! There was an error loading the audio. Try using a different browser.
+         </audio>
+         <h6>Song credit: <a href="https://www.bensound.com">bensound.com</a></h6>
+         <h4>
+            Click bell for sound!
+         </h4>
+         <img src="bell.jpg" onclick="playBell()">
+         <audio id="bell" style="display:none;">
+            <source src="service-bell_daniel_simion.mp3" type="audio/mpeg">
+         </audio>
+      </div>
    </body>
 </html>
