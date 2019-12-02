@@ -1,0 +1,44 @@
+body {
+   background-color: #ffefef;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+   position: fixed;
+}
+
+header h1 {
+   text-align: center;
+}
+
+#piano {
+   width: 90%;
+   border: 1px solid black;
+   margin: auto;
+}
+
+.flexBox {
+   display: flex;
+   flex-direction: row;
+}
+
+.piano-key {
+   width: 50px;
+   height: 200px;
+   border: 1px solid black;
+   border-collapse: collapse;
+   background-color: white;
+}
+
+.piano-key:hover {
+   background-color: #cfcfcf
+}
+
+#clickMessage {
+   position: absolute;
+   width: 90%;
+   height: 200px;
+   text-align: center;
+   background-color: #3f3f3f;
+   opacity: 50%;
+}
