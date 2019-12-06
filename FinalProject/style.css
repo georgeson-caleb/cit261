@@ -4,7 +4,25 @@ body {
 }
 
 header {
-   position: fixed;
+   background-color: #ffefef;
+   z-index: 1;
+   position: sticky;
+   top: 0;
+   text-align: center;
+   display: none;
+}
+
+select {
+   transition-duration: 2s;
+}
+
+#loadingScreen {
+   text-align: center;
+   transition: 2s;
+   opacity: 0%;
+   font-size: xx-large;
+   position: absolute;
+   transform: translate(50%, 400px);
 }
 
 header h1 {
@@ -14,7 +32,21 @@ header h1 {
 #piano {
    width: 90%;
    border: 1px solid black;
-   margin: auto;
+   margin: 20px auto;
+   display: none;
+}
+
+#registration {
+   margin: 20px auto;
+   width: 50%;
+   height: 400px;
+   background-color: white;
+   border: 1px solid black;
+   display: none;
+}
+
+#registration h3 {
+   text-align: center;
 }
 
 .flexBox {
@@ -34,11 +66,65 @@ header h1 {
    background-color: #cfcfcf
 }
 
+.black-key {
+   width: 50%;
+   height: 75%;
+   background-color: black;
+}
+
 #clickMessage {
    position: absolute;
    width: 90%;
    height: 200px;
    text-align: center;
-   background-color: #3f3f3f;
-   opacity: 50%;
+   background-color: #3f3f3f86;
+}
+
+#registration form {
+   width: 50%;
+   margin: auto;
+}
+
+input {
+   width: 25%;
+   padding: 5px;
+   border: 1px solid black;
+   border-radius: 3px;
+   margin: 5px;
+   transition-duration: 1s;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button, textarea, select {
+   width: 100%;
+   padding: 5px;
+   border: 1px solid black;
+   border-radius: 3px;
+   margin: 5px;
+   transition-duration: 1s;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.expandable:focus {
+   width: 100%;
+}
+
+.slideLeftDisappear {
+   animation-name: slideLeftDisappear;
+   animation-duration: 1s;
+}
+
+@keyframes slideLeftDisappear {
+   from { transform: translateX(0px); opacity: 100% }
+   to { transform: translateX(-200px); opacity: 0% }
+}
+
+.slideLeftAppear {
+   animation-name: slideLeftAppear;
+   animation-duration: 1s;
+}
+
+@keyframes slideLeftAppear {
+   from { transform: translateX(200px); opacity: 0% }
+   to { transform: translateX(0px); opacity: 100%; }
 }

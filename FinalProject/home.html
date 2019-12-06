@@ -7,45 +7,121 @@
       <link rel="stylesheet" href="style.css">
       <script src="script.js"></script>
    </head>
-   <body>
-      <header>
+   <body onload="startLoadingTransition()">
+      <header id="header">
          <h1>
             Mr. Forte's Piano School
          </h1>
       </header>
+      <div id="loadingScreen" ontransitionend="showPage()">Your talents begin here.</div>
+      <div id="info"></div>
       <div id="piano" class="flexBox">
-         <p id="clickMessage" onclick="disableThis(this)">Click anywhere to play!</p>
          <div id="c2key" class="piano-key" onmouseover="play('c2')" ontouch="play('c2')"></div>
-         <div id="e2key" class="piano-key" onmouseover="play('d2')" ontouch="play('d2')"></div>
-         <div id="f2key" class="piano-key" onmouseover="play('e2')" ontouch="play('e2')"></div>
-         <div id="d2key" class="piano-key" onmouseover="play('f2')" ontouch="play('f2')"></div>
-         <div id="g2key" class="piano-key" onmouseover="play('g2')" ontouch="play('g2')"></div>
-         <div id="a2key" class="piano-key" onmouseover="play('a2')" ontouch="play('a2')"></div>
-         <div id="b2key" class="piano-key" onmouseover="play('b2')" ontouch="play('b2')"></div>
+         <div id="d2key" class="piano-key" onmouseover="play('d2')" ontouch="play('d2')">
+            <div id="c#2key" class="black-key" onmouseover="play('c2')"></div>
+         </div>
+         <div id="e2key" class="piano-key" onmouseover="play('e2')" ontouch="play('e2')">
+            <div id="d#2key" class="black-key" onmouseover="play('c2')"></div>
+         </div>
+         <div id="f2key" class="piano-key" onmouseover="play('f2')" ontouch="play('f2')"></div>
+         <div id="g2key" class="piano-key" onmouseover="play('g2')" ontouch="play('g2')">
+            <div id="f#2key" class="black-key" onmouseover="play('c2')"></div>
+         </div>
+         <div id="a2key" class="piano-key" onmouseover="play('a2')" ontouch="play('a2')">
+            <div id="g#2key" class="black-key" onmouseover="play('c2')"></div>
+         </div>
+         <div id="b2key" class="piano-key" onmouseover="play('b2')" ontouch="play('b2')">
+            <div id="a#2key" class="black-key" onmouseover="play('c2')"></div>
+         </div>
          <div id="c3key" class="piano-key" onmouseover="play('c3')" ontouch="play('c3')"></div>
-         <div id="d3key" class="piano-key" onmouseover="play('d3')" ontouch="play('d3')"></div>
-         <div id="e3key" class="piano-key" onmouseover="play('e3')" ontouch="play('e3')"></div>
+         <div id="d3key" class="piano-key" onmouseover="play('d3')" ontouch="play('d3')">
+            <div id="c#3key" class="black-key" onmouseover="play('c2')"></div>
+         </div>
+         <div id="e3key" class="piano-key" onmouseover="play('e3')" ontouch="play('e3')">
+            <div id="d#3key" class="black-key" onmouseover="play('c2')"></div>
+         </div>
          <div id="f3key" class="piano-key" onmouseover="play('f3')" ontouch="play('f3')"></div>
-         <div id="g3key" class="piano-key" onmouseover="play('g3')" ontouch="play('g3')"></div>
-         <div id="a3key" class="piano-key" onmouseover="play('a3')" ontouch="play('a3')"></div>
-         <div id="b3key" class="piano-key" onmouseover="play('b3')" ontouch="play('b3')"></div>
+         <div id="g3key" class="piano-key" onmouseover="play('g3')" ontouch="play('g3')">
+            <div id="f#3key" class="black-key" onmouseover="play('c2')"></div>
+         </div>
+         <div id="a3key" class="piano-key" onmouseover="play('a3')" ontouch="play('a3')">
+            <div id="g#3key" class="black-key" onmouseover="play('c2')"></div>
+         </div>
+         <div id="b3key" class="piano-key" onmouseover="play('b3')" ontouch="play('b3')">
+            <div id="a#2key" class="black-key" onmouseover="play('c2')"></div>
+         </div>
          <div id="c4key" class="piano-key" onmouseover="play('c4')" ontouch="play('c4')"></div>
-         <div id="d4key" class="piano-key" onmouseover="play('d4')" ontouch="play('d4')"></div>
-         <div id="e4key" class="piano-key" onmouseover="play('e4')" ontouch="play('e4')"></div>
+         <div id="d4key" class="piano-key" onmouseover="play('d4')" ontouch="play('d4')">
+            <div id="c#4key" class="black-key" onmouseover="play('c2')"></div>
+         </div>
+         <div id="e4key" class="piano-key" onmouseover="play('e4')" ontouch="play('e4')">
+            <div id="d#4key" class="black-key" onmouseover="play('c2')"></div>
+         </div>
          <div id="f4key" class="piano-key" onmouseover="play('f4')" ontouch="play('f4')"></div>
-         <div id="g4key" class="piano-key" onmouseover="play('g4')" ontouch="play('g4')"></div>
-         <div id="a4key" class="piano-key" onmouseover="play('a4')" ontouch="play('a4')"></div>
-         <div id="b4key" class="piano-key" onmouseover="play('b4')" ontouch="play('b4')"></div>
+         <div id="g4key" class="piano-key" onmouseover="play('g4')" ontouch="play('g4')">
+            <div id="f#4key" class="black-key" onmouseover="play('c2')"></div>
+         </div>
+         <div id="a4key" class="piano-key" onmouseover="play('a4')" ontouch="play('a4')">
+            <div id="g#4key" class="black-key" onmouseover="play('c2')"></div>
+         </div>
+         <div id="b4key" class="piano-key" onmouseover="play('b4')" ontouch="play('b4')">
+            <div id="a#4key" class="black-key" onmouseover="play('c2')"></div>
+         </div>
          <div id="c5key" class="piano-key" onmouseover="play('c5')" ontouch="play('c5')"></div>
-         <div id="d5key" class="piano-key" onmouseover="play('d5')" ontouch="play('d5')"></div>
-         <div id="e5key" class="piano-key" onmouseover="play('e5')" ontouch="play('e5')"></div>
+         <div id="d5key" class="piano-key" onmouseover="play('d5')" ontouch="play('d5')">
+            <div id="c#5key" class="black-key" onmouseover="play('c2')"></div>
+         </div>
+         <div id="e5key" class="piano-key" onmouseover="play('e5')" ontouch="play('e5')">
+            <div id="d#5key" class="black-key" onmouseover="play('c2')"></div>
+         </div>
          <div id="f5key" class="piano-key" onmouseover="play('f5')" ontouch="play('f5')"></div>
-         <div id="g5key" class="piano-key" onmouseover="play('g5')" ontouch="play('g5')"></div>
-         <div id="a5key" class="piano-key" onmouseover="play('a5')" ontouch="play('a5')"></div>
-         <div id="b5key" class="piano-key" onmouseover="play('b5')" ontouch="play('b5')"></div>
+         <div id="g5key" class="piano-key" onmouseover="play('g5')" ontouch="play('g5')">
+            <div id="f#5key" class="black-key" onmouseover="play('c2')"></div>
+         </div>
+         <div id="a5key" class="piano-key" onmouseover="play('a5')" ontouch="play('a5')">
+            <div id="g#5key" class="black-key" onmouseover="play('c2')"></div>
+         </div>
+         <div id="b5key" class="piano-key" onmouseover="play('b5')" ontouch="play('b5')">
+            <div id="a#5key" class="black-key" onmouseover="play('c2')"></div>
+         </div>
          <div id="c6key" class="piano-key" onmouseover="play('c6')" ontouch="play('c6')"></div>
       </div>
-      <div id="menu" style="height: 5000px"></div>
+      <div id="registration" class="flexBox">
+         <h3>
+            Now accepting applicants!
+         </h3>
+         <div class="flexBox">
+            <div>
+               <form id="slide1" onanimationend="disable(this)">
+                  <input type="text" class="expandable" id="firstName" placeholder="First Name"><br>
+                  <input type="text" class="expandable" id="lastName" placeholder="Last Name"><br>
+                  <select id="ageGroup">
+                     <option value=0>[Select Age Group]</option>
+                     <option value=1>5-12</option>
+                     <option value=2>13-17</option>
+                     <option value=3>18-29</option>
+                     <option value=4>30+</option>
+                  </select><br>
+                  <p>
+                     Describe why you want to learn the piano. We want to help you as best we can!
+                     <textarea id="description"></textarea>
+                  </p>
+                  <button type="button" onclick="register(); slide1Left()">Register!</button>
+               </form>
+            </div>
+            <div>
+               <form id="slide2" style="display:none">
+                  <ul id="days">
+                     <li><input type="checkbox" id="day1" value="Monday">Monday</li>
+                     <li><input type="checkbox" id="day2" value="Tuesday">Tuesday</li>
+                     <li><input type="checkbox" id="day3" value="Wednesday">Wednesday</li>
+                     <li><input type="checkbox" id="day4" value="Thursday">Thursday</li>
+                     <li><input type="checkbox" id="day5" value="Friday">Friday</li>
+                  </ul>
+               </form>   
+            </div>
+         </div>
+      </div>
       <audio style="display:none" id="c2">
          <source src="pianoNotes/c2.mp3" type="audio/mpeg">
       </audio>
