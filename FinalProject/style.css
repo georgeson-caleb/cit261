@@ -54,6 +54,39 @@ header h1 {
    flex-direction: row;
 }
 
+.flexdown {
+   display: flex;
+   flex-direction: column;
+}
+
+#days, #time {
+   width: 50%;
+}
+
+#days, #time h4 {
+   text-align: center;
+}
+
+#timeSelection {
+   height: 200px;
+}
+
+.scrollable {
+   overflow-x: hidden;
+   overflow-y: auto;
+}
+
+.selection {
+   margin: auto;
+   width: 50%;
+   height: 30px;
+   transition-duration: 1s;
+   border-radius: 5px;
+   margin: 5px 20px;
+   background-color: #fa5757;
+   border: 2px solid #d64e4e;
+}
+
 .piano-key {
    width: 50px;
    height: 200px;
@@ -72,19 +105,6 @@ header h1 {
    background-color: black;
 }
 
-#clickMessage {
-   position: absolute;
-   width: 90%;
-   height: 200px;
-   text-align: center;
-   background-color: #3f3f3f86;
-}
-
-#registration form {
-   width: 50%;
-   margin: auto;
-}
-
 input {
    width: 25%;
    padding: 5px;
@@ -93,6 +113,15 @@ input {
    margin: 5px;
    transition-duration: 1s;
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#slide1 {
+   width: 50%;
+   margin: auto;
+}
+
+#slide2 {
+   width: 100%;
 }
 
 button, textarea, select {
@@ -127,4 +156,15 @@ button, textarea, select {
 @keyframes slideLeftAppear {
    from { transform: translateX(200px); opacity: 0% }
    to { transform: translateX(0px); opacity: 100%; }
+}
+
+.wiggle {
+   animation-name: wiggle;
+   animation-duration: 1s;
+}
+
+@keyframes wiggle {
+   0%   { transform: rotate(-5deg); }
+   50%  { transform: rotate(5deg);  }
+   100% { transform: rotate(0deg);  }
 }

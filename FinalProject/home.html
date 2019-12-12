@@ -86,40 +86,53 @@
          </div>
          <div id="c6key" class="piano-key" onmouseover="play('c6')" ontouch="play('c6')"></div>
       </div>
-      <div id="registration" class="flexBox">
+      <div id="registration">
          <h3>
             Now accepting applicants!
          </h3>
          <div class="flexBox">
-            <div>
-               <form id="slide1" onanimationend="disable(this)">
-                  <input type="text" class="expandable" id="firstName" placeholder="First Name"><br>
-                  <input type="text" class="expandable" id="lastName" placeholder="Last Name"><br>
-                  <select id="ageGroup">
-                     <option value=0>[Select Age Group]</option>
-                     <option value=1>5-12</option>
-                     <option value=2>13-17</option>
-                     <option value=3>18-29</option>
-                     <option value=4>30+</option>
-                  </select><br>
-                  <p>
-                     Describe why you want to learn the piano. We want to help you as best we can!
-                     <textarea id="description"></textarea>
-                  </p>
-                  <button type="button" onclick="register(); slide1Left()">Register!</button>
-               </form>
+            <div id="slide1" onanimationend="disable(this)">
+               <input type="text" class="expandable" id="firstName" placeholder="First Name"><br>
+               <input type="text" class="expandable" id="lastName" placeholder="Last Name"><br>
+               <select id="ageGroup">
+                  <option value=0>[Select Age Group]</option>
+                  <option value=1>5-12</option>
+                  <option value=2>13-17</option>
+                  <option value=3>18-29</option>
+                  <option value=4>30+</option>
+               </select><br>
+               <p>
+                  Describe why you want to learn the piano. We want to help you as best we can!
+                  <textarea id="description"></textarea>
+               </p>
+               <button type="button" onclick="slide1Left()">Register!</button>
             </div>
-            <div>
-               <form id="slide2" style="display:none">
-                  <ul id="days">
-                     <li><input type="checkbox" id="day1" value="Monday">Monday</li>
-                     <li><input type="checkbox" id="day2" value="Tuesday">Tuesday</li>
-                     <li><input type="checkbox" id="day3" value="Wednesday">Wednesday</li>
-                     <li><input type="checkbox" id="day4" value="Thursday">Thursday</li>
-                     <li><input type="checkbox" id="day5" value="Friday">Friday</li>
-                  </ul>
-               </form>   
-            </div>
+            <div id="slide2" style="display:none">
+               <div class="flexBox">
+                  <div id="days" class="flexdown">
+                     <h4>Pick your day(s):</h4>
+                     <div class="selection" id="monday" onmouseover="wiggleDiv(this); play('c4')" onanimationend="undoWiggle(this)" onclick="selectDay(this)">Monday</div>
+                     <div class="selection" id="tuesday" onmouseover="wiggleDiv(this); play('e4')" onanimationend="undoWiggle(this)" onclick="selectDay(this)">Tuesday</div>
+                     <div class="selection" id="wednesday" onmouseover="wiggleDiv(this); play('g4')" onanimationend="undoWiggle(this)" onclick="selectDay(this)">Wednesday</div>
+                     <div class="selection" id="thursday" onmouseover="wiggleDiv(this); play('c5')" onanimationend="undoWiggle(this)" onclick="selectDay(this)">Thursday</div>
+                     <div class="selection" id="friday" onmouseover="wiggleDiv(this); play('e5')" onanimationend="undoWiggle(this)" onclick="selectDay(this)">Friday</div>
+                  </div>
+                  <div id="time">
+                     <h4>Pick your time:</h4>
+                     <div id="timeSelection" class="flexdown scrollable">
+                        <div class="selection" onmouseover="wiggleDiv(this); play('c4')" onanimationend="undoWiggle(this)" onclick="selectTime(this)">8 am</div>
+                        <div class="selection" onmouseover="wiggleDiv(this); play('e4')" onanimationend="undoWiggle(this)" onclick="selectTime(this)">9 am</div>
+                        <div class="selection" onmouseover="wiggleDiv(this); play('g4')" onanimationend="undoWiggle(this)" onclick="selectTime(this)">10 am</div>
+                        <div class="selection" onmouseover="wiggleDiv(this); play('c5')" onanimationend="undoWiggle(this)" onclick="selectTime(this)">11 am</div>   
+                        <div class="selection" onmouseover="wiggleDiv(this); play('c4')" onanimationend="undoWiggle(this)" onclick="selectTime(this)">12 pm</div>
+                        <div class="selection" onmouseover="wiggleDiv(this); play('e4')" onanimationend="undoWiggle(this)" onclick="selectTime(this)">1 pm</div>
+                        <div class="selection" onmouseover="wiggleDiv(this); play('g4')" onanimationend="undoWiggle(this)" onclick="selectTime(this)">2 pm</div>   
+                        <div class="selection" onmouseover="wiggleDiv(this); play('c5')" onanimationend="undoWiggle(this)" onclick="selectTime(this)">3 pm</div>   
+                     </div>
+                  </div>
+               </div>
+               <button type="button" onclick="register()">Register</button>
+            </div>   
          </div>
       </div>
       <audio style="display:none" id="c2">
