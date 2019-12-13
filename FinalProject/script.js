@@ -3,6 +3,8 @@ class Student {
    lastName;
    ageGroup;
    description;
+   days;
+   time;
 }
 
 var Monday = false;
@@ -56,6 +58,19 @@ function selectDay(elem) {
    }
 }
 
+var time = '';
+function selectTime(elem) {
+   var times = document.getElementById("timeSelection").childNodes;
+   
+   for (var i = 0; i < times.length; i++) {
+      if (times[i].tagName == "DIV") {
+         deselect(times[i]);
+      }
+   }
+   select(elem);
+   time = elem.innerHTML;
+}
+
 function play(note) {
    document.getElementById(note).play();
 }
@@ -74,7 +89,30 @@ function register() {
    student.lastName = document.getElementById("lastName").value;
    student.ageGroup = document.getElementById("ageGroup").value;
    student.description = document.getElementById("description").value;
+   student.days = getDays();
+   student.time = time;
    saveStudentInfo(student);
+}
+
+function getDays() {
+   var days = [];
+   if (Monday) {
+      days.push("Monday");
+   }
+   if (Tuesday) {
+      days.push("Tuesday");
+   }
+   if (Wednesday) {
+      days.push("Wednesday");
+   }
+   if (Thursday) {
+      days.push("Thursday");
+   }
+   if (Friday) {
+      days.push("Friday");
+   }
+
+   return days;
 }
 
 function saveStudentInfo(student) {

@@ -68,7 +68,8 @@ header h1 {
 }
 
 #timeSelection {
-   height: 200px;
+   height: 210px;
+   text-align: center;
 }
 
 .scrollable {
@@ -132,6 +133,12 @@ button, textarea, select {
    margin: 5px;
    transition-duration: 1s;
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button {
+   width: 60%;
+   margin: auto;
+   display: block;
 }
 
 .expandable:focus {
