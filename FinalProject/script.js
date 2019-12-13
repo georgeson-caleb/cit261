@@ -116,7 +116,14 @@ function getDays() {
 }
 
 function saveStudentInfo(student) {
-   console.log(student);
+   var xhttp = new XMLHttpRequest();
+   xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+         console.log(this.responseText);
+      }
+   }
+   xhttp.open("POST", "saveStudentInfo.php", true);
+   xhttp.send(JSON.stringify(student));
 }
 
 function startLoadingTransition() {
