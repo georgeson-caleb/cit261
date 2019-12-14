@@ -141,6 +141,11 @@ button {
    display: block;
 }
 
+#slide2 {
+   margin: auto;
+   width: 60%;
+}
+
 .expandable:focus {
    width: 100%;
 }

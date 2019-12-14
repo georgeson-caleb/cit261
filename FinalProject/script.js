@@ -91,7 +91,8 @@ function register() {
    student.description = document.getElementById("description").value;
    student.days = getDays();
    student.time = time;
-   saveStudentInfo(student);
+   //saveStudentInfo(student);
+   showResponse();
 }
 
 function getDays() {
@@ -179,7 +180,10 @@ function updateResponse(response) {
 }
 
 function showResponse() {
-   document.getElementById("slide2").classList.add("slideLeftDisappear");
+   document.getElementById("slide2").classList += " slideLeftDisappear";
+   document.getElementById("slide2").addEventListener("animationend", function() {
+      document.getElementById("slide2").style.display = "none";
+   });
    document.getElementById("slide3").style.display = "block";
    document.getElementById("slide3").classList.add("slideLeftAppear");
 }
