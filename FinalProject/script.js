@@ -91,8 +91,7 @@ function register() {
    student.description = document.getElementById("description").value;
    student.days = getDays();
    student.time = time;
-   //saveStudentInfo(student);
-   showResponse();
+   saveStudentInfo(student);
 }
 
 function getDays() {

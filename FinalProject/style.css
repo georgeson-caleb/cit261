@@ -141,7 +141,7 @@ button {
    display: block;
 }
 
-#slide2 {
+#slide2, #slide3 {
    margin: auto;
    width: 60%;
 }
