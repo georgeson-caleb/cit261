@@ -119,7 +119,8 @@ function saveStudentInfo(student) {
    var xhttp = new XMLHttpRequest();
    xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
-         console.log(this.responseText);
+         updateResponse(JSON.parse(this.responseText));
+         showResponse(responseStudent);
       }
    }
    xhttp.open("POST", "saveStudentInfo.php", true);
@@ -165,4 +166,20 @@ function deselect(elem) {
    elem.style.borderColor = "#d64e4e";
    elem.style.width = "50%";
    elem.style.height = "30px";
+}
+
+function updateResponse(response) {
+   document.getElementById("firstNameResponse").innerHTML = response.firstName;
+   document.getElementById("timeResponse").innerHTML = response.time;
+   var dayString = "";
+   for (var i = 0; i < response.days.length; i++) {
+      dayString += (i < (response.days.length - 1)) ? response.days[i] + ", " : response.days[i];
+   }
+   document.getElementById("daysResponse").innerHTML = dayString;
+}
+
+function showResponse() {
+   document.getElementById("slide2").classList.add("slideLeftDisappear");
+   document.getElementById("slide3").style.display = "block";
+   document.getElementById("slide3").classList.add("slideLeftAppear");
 }
