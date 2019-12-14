@@ -256,8 +256,12 @@ function updateResponse(response) {
    document.getElementById("firstNameResponse").innerHTML = response.firstName;
    document.getElementById("timeResponse").innerHTML = response.time;
    var dayString = "";
-   for (var i = 0; i < response.days.length; i++) {
-      dayString += (i < (response.days.length - 1)) ? response.days[i] + ", " : "and " + response.days[i];
+   if (response.days.length > 1) {
+      for (var i = 0; i < response.days.length; i++) {
+         dayString += (i < (response.days.length - 1)) ? response.days[i] + ", " : "and " + response.days[i];
+      }
+   } else {
+      dayString = response.days[0];
    }
    document.getElementById("dayResponse").innerHTML = dayString;
 }
