@@ -175,7 +175,7 @@ function updateResponse(response) {
    for (var i = 0; i < response.days.length; i++) {
       dayString += (i < (response.days.length - 1)) ? response.days[i] + ", " : response.days[i];
    }
-   document.getElementById("daysResponse").innerHTML = dayString;
+   document.getElementById("dayResponse").innerHTML = dayString;
 }
 
 function showResponse() {
